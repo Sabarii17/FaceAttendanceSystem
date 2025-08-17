@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #ecf0f1;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .present {
+            color: green;
+            font-weight: bold;
+        }
+        .absent {
+            color: red;
+            font-weight: bold;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            background-color: #00b894;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #019875;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Attendance Result</h1>
+        <div class="section">
+            <p><strong>Total Students:</strong> {{ total_students }}</p>
+            <p><span class="present">✅ Present:</span> {{ num_present }}</p>
+            <p><span class="absent">❌ Absent:</span> {{ num_absent }}</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="present">✅ Present Students</h2>
+            {% if present %}
+                <ul>
+                    {% for student in present %}
+                        <li>{{ student }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No students detected as present.</p>
+            {% endif %}
+        </div>
+        <div class="section">
+            <h2 class="absent">❌ Absent Students</h2>
+            {% if absent %}
+                <ul>
+                    {% for student in absent %}
+                        <li>{{ student }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No students are marked as absent.</p>
+            {% endif %}
+        </div>
+        <a href="/">🔙 Back to Upload</a>
+    </div>
+</body>
+</html>
