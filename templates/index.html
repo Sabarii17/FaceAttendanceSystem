@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Attendance System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #fff;
+        }
+        form {
+            margin-top: 30px;
+        }
+        input[type="file"] {
+            padding: 12px;
+            background-color: #fff;
+            border: none;
+            border-radius: 8px;
+            color: #333;
+            margin-bottom: 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #00b894;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #019875;
+        }
+        .note {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Face Attendance System</h1>
+        <p>Upload your class photos to check attendance automatically using face recognition.</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="class_photos[]" multiple required>
+            <button type="submit">Upload</button>
+        </form>
+        
+        <p class="note">You can upload one or more images (jpg, jpeg, png).</p>
+    </div>
+</body>
+</html>
